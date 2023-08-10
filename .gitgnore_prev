@@ -1,6 +1,0 @@
-# Ignore .env
-.env
-# Ignore development stuff
-twitter_stuff.txt
-# Ignore project folder
-RapLyricsBot/

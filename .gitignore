@@ -164,4 +164,4 @@ cython_debug/
 project/
 .ipynb_checkpoints/
 .idea/
-*.ipynb/
+*.ipynb
