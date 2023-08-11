@@ -11,14 +11,14 @@ class FileReadError(Exception):
 
 
 def sanitize_line(line: str) -> str:
-    no_brackets = re.sub(r'\[[^\[\]]*\]', '', line)
+    no_brackets = re.sub(r'\[.*?(\s|$|.*])', '', line.strip())
     no_space_before_punctuation = r'\s+([.,;!?:])\s*'
     line_sanitized = re.sub(no_space_before_punctuation, r'\1 ', no_brackets)
     line_sanitized = re.sub(r'\s+', ' ', line_sanitized)
     has_tweet_length = 3 <= len(line_sanitized) < 240
     starts_with_letter = re.match(r'^[a-zA-Z].*', line_sanitized)
     if has_tweet_length and starts_with_letter:
-        return line_sanitized
+        return line_sanitized.strip()
     return ""
 
 
