@@ -82,5 +82,4 @@ def tweet_line_from_file(path: str, max_retries: int = 1) -> None:
         time.sleep(100)
         retries += 1
 
-while True:
-    tweet_line_from_file(TEXT_PATH)
+tweet_line_from_file(TEXT_PATH)
