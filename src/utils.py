@@ -8,7 +8,6 @@ class FileReadError(Exception):
     """
     General exception class for handling file errors.
     """
-    pass
 
 def sanitize_line(line: str) -> str:
     """
@@ -45,7 +44,7 @@ def read_lines(file_path: str) -> List[str]:
         FileReadError: If the file is not found or an error occurs while reading.
     """
     try:
-        with open(file_path, 'r') as file:
+        with open(file_path, 'r', encoding='utf-8') as file:
             lines = []
             for paragraph in file:
                 sentences = paragraph.split('.')
@@ -54,9 +53,9 @@ def read_lines(file_path: str) -> List[str]:
                         lines.append(sentence)
             return lines
     except FileNotFoundError as exc:
-        raise FileReadError("File not found: %s", exc)
+        raise FileReadError(f"File not found: {exc}") from exc
     except Exception as general_exception:
-        raise FileReadError("An error occurred: %s", generalexception)
+        raise FileReadError(f"An error occurred: {general_exception}") from general_exception
 
 
 def get_random_line(lines: List) -> str:
@@ -83,18 +82,18 @@ def get_script_directory() -> str:
     )
     return directory
 
-def get_text_file(dir, text_path):
+def get_text_file(file_dir, text_path):
     """
     Returns the absolute path of the text file within a directory.
 
     Args:
-        dir (str): The directory containing the text file.
+        file_dir (str): The directory containing the text file.
         text_path (str): The relative path to the text file.
 
     Returns:
         str: The absolute path of the text file.
     """
-    text_path = os.path.join(dir,
+    text_path = os.path.join(file_dir,
                              text_path)
     abs_text_path = os.path.abspath(text_path)
     return abs_text_path
