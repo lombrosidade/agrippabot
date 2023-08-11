@@ -1,0 +1,7 @@
+{
+    "name": "AgrippaBot",
+    "description": "Deploy AgrippaBot to Heroku",
+    "repository": "https://github.com/lombrosidade/agrippabot",
+    "stack": "heroku-20",
+    "keywords": ["python", "flask"]
+}
