@@ -164,10 +164,8 @@ cython_debug/
 project/
 
 # Other files and folders
-.env
 .ipynb_checkpoints/
 .idea/
 *.ipynb
-venv/
 *.sh
-.env
+src/__pycache__/
