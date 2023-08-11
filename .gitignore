@@ -170,3 +170,4 @@ project/
 *.ipynb
 venv/
 *.sh
+.env
