@@ -162,6 +162,10 @@ cython_debug/
 
 # Project folder
 project/
+
+# Other files and folders
 .ipynb_checkpoints/
 .idea/
 *.ipynb
+*.sh
+src/__pycache__/
