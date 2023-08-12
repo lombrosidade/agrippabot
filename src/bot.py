@@ -60,7 +60,7 @@ def tweet_line_from_file(path: str, interval: int = 3600) -> None:
         client.get_me()
         logger.info("Successfully logged in")
     except tweepy.errors.TweepyException as tweepy_error:
-        print("Couldn't authenticate: %s", tweepy_error)
+        print(f"Couldn't authenticate: {tweepy_error}")
 
     # Construct the absolute path to TEXT_PATH
     text_path = os.path.join(script_directory, path)
