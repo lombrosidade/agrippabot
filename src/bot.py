@@ -24,7 +24,7 @@ IS_LOADED = load_dotenv(dotenv_path)
 if not IS_LOADED:
     print(f"Couldn't find .env file in: {dotenv_path}. "
           "Make sure you they're in the root folder of the project."
-)
+          )
 
 CONSUMER_KEY = environ.get('CONSUMER_KEY')
 CONSUMER_SECRET = environ.get('CONSUMER_SECRET')
@@ -32,7 +32,10 @@ ACCESS_KEY = environ.get('ACCESS_KEY')
 ACCESS_KEY_SECRET = environ.get('ACCESS_KEY_SECRET')
 BEARER_TOKEN = environ.get('BEARER_TOKEN')
 TEXT_PATH = environ.get('TEXT_PATH')
-TEXT_FILE = get_text_file(script_directory, TEXT_PATH)
+if TEXT_PATH is not None:
+    TEXT_FILE = get_text_file(script_directory, TEXT_PATH)
+else:
+    TEXT_FILE = get_text_file(script_directory, 'data/agrippa.txt')
 
 
 def tweet_line_from_file(path: str, interval: int = 3600) -> None:
@@ -81,5 +84,6 @@ def tweet_line_from_file(path: str, interval: int = 3600) -> None:
     except tweepy.errors.TweepyException as tweepy_exception:
         logger.warning("Couldn't tweet: %s", tweepy_exception)
         time.sleep(100)
+
 
 tweet_line_from_file(TEXT_FILE)
