@@ -121,6 +121,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+*.env
 .env
 .venv
 venv/
@@ -179,3 +180,4 @@ src/__pycache__/
 
 # VSCode
 .vscode/
+
