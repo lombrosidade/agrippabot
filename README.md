@@ -11,8 +11,7 @@
   * Pre-requisites
   * How to run the Application
   * Tests
-  * Deployment
-
+  * License
 
 ## Features
 The bot tweets a random line from previously sanitized text file containing all three volumes from John French's translation of Agrippa's Occult Philosophy. The text file can be found [here.](https://github.com/lombrosidade/agrippabot/data/agrippa.txt) The code is located in the [src](https://github.com/lombrosidade/agrippabot/src) folder.
@@ -52,7 +51,7 @@ In order to use the bot, you'll need to:
 
 ## How to run the application
 <details>
-    <summary><b>How to run the application locally.<b></summary>
+    <summary><b>How to run the application locally.</b></summary>
 
 1. Clone this repository on your local machine
 2. Create a virtual environment in your project's root directory: `python3 -m venv environment && source environment/bin/activate`
@@ -79,7 +78,7 @@ TEXT_PATH=data/agrippa.txt
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/lombrosidade/agrippa/
+git clone https://github.com/lombrosidade/agrippa.git
 ```
 
 2. Change to the directory:
@@ -96,6 +95,27 @@ docker compose up -d --build
 The text should be tweeted then.
 </details>
 
+## Tests
+<details> 
+  <summary><b>Test Bot</b></summary>
+
+To test the helper functions, do the following:
+
+1. Clone the repository:
+```
+git clone https://github.com/lombrosidade/agrippa.git
+```
+2. Change the working directory and install the requirements and pytest:
+```
+cd agrippa
+pip install -r requirements.txt
+```
+3. Move to the tests folder and run the tests
+```
+pip install pytest
+pytest tests
+```
+</details>
 # License
 [MIT](https://github.com/lombrosidade/agrippa/LICENSE.md)
 
