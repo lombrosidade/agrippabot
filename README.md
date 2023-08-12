@@ -4,14 +4,14 @@
 >Twitter bot for Agrippa's Three Books of Occult Philosophy, translated by John French. This project was inspired by another similiar project by [Nneji123](https://github.com/Nneji123/RapLyricsBot/actions/workflows/test.yml), to whom I am grateful.
 
 ## Contents
-  * [About :speech_balloon:](#about--speech-balloon-)
-  * [Contents :page_with_curl:](#contents--page-with-curl-)
-  * [Features :star2:](#features--star2-)
-  * [Repository File Structure :file_folder:](#repository-file-structure--file-folder-)
-  * [Pre-requisites :boom:](#pre-requisites--boom-)
-  * [How to run the Application :question:](#how-to-run-the-application--question-)
-  * [Tests :keyboard:](#tests--keyboard-)
-  * [Deployment :computer:](#deployment--computer-)
+  * [About :speech_balloon:]
+  * [Contents :page_with_curl:]
+  * [Features :star2:]
+  * [Repository File Structure :file_folder:]
+  * [Pre-requisites :boom:]
+  * [How to run the Application :question:]
+  * [Tests :keyboard:]
+  * [Deployment :computer:]
 
 
 
