@@ -1,9 +1,9 @@
 # AgrippaBot
 
-## About :speech_balloon:
+## About
 >Twitter bot for Agrippa's Three Books of Occult Philosophy, translated by John French. This project was inspired by another similiar project by [Nneji123](https://github.com/Nneji123/RapLyricsBot/actions/workflows/test.yml), to whom I am grateful.
 
-## Contents :page_with_curl:
+## Contents
   * [About :speech_balloon:](#about--speech-balloon-)
   * [Contents :page_with_curl:](#contents--page-with-curl-)
   * [Features :star2:](#features--star2-)
@@ -15,12 +15,12 @@
 
 
 
-## Features :star2:
+## Features
 The bot tweets a random line from previously sanitized text file containing all three volumes from John French's translation of Agrippa's Occult Philosophy. The text file can be found [here.](https://github.com/lombrosidade/agrippabot/data/agrippa.txt) The code is located in the [src](https://github.com/lombrosidade/agrippabot/src) folder.
 
 
 
-## Repository File Structure :file_folder:
+## Repository File Structure
 ```bash
 ├───.github # Github Workflows
 │   └───workflows
@@ -97,6 +97,6 @@ docker compose up -d --build
 The text should be tweeted then.
 </details>
 
-# License :page_with_curl:
+# License
 [MIT](https://github.com/lombrosidade/agrippa/LICENSE.md)
 
