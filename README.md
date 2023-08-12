@@ -11,7 +11,6 @@
   * Pre-requisites
   * How to run the Application
   * Tests
-  * License
 
 ## Features
 The bot tweets a random line from previously sanitized text file containing all three volumes from John French's translation of Agrippa's Occult Philosophy. The text file can be found [here.](https://github.com/lombrosidade/agrippabot/data/agrippa.txt) The code is located in the [src](https://github.com/lombrosidade/agrippabot/src) folder.
@@ -116,6 +115,7 @@ pip install pytest
 pytest tests
 ```
 </details>
-## License
+
+# License
 [MIT](https://github.com/lombrosidade/agrippa/LICENSE.md)
 
