@@ -117,5 +117,5 @@ pytest tests
 </details>
 
 # License
-[MIT](https://github.com/lombrosidade/agrippa/blob/main/LICENSE.md)
+[MIT](https://github.com/lombrosidade/agrippabot/blob/main/LICENSE.md)
 
