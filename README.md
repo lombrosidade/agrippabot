@@ -9,11 +9,11 @@
   * Features
   * Repository file structure
   * Pre-requisites
-  * How to run the Application
+  * How to run the application
   * Tests
 
 ## Features
-The bot tweets a random line from previously sanitized text file containing all three volumes from John French's translation of Agrippa's Occult Philosophy. The text file can be found [here.](https://github.com/lombrosidade/agrippabot/data/agrippa.txt) The code is located in the [src](https://github.com/lombrosidade/agrippabot/src) folder.
+The bot tweets a random line from previously sanitized text file containing all three volumes from John French's translation of Agrippa's Occult Philosophy. The text file can be found [here.](https://github.com/lombrosidade/agrippabot/blob/main/data/agrippa.txt) The code is located in the [src](https://github.com/lombrosidade/agrippabot/blob/main/src) folder.
 
 
 
@@ -117,5 +117,5 @@ pytest tests
 </details>
 
 # License
-[MIT](https://github.com/lombrosidade/agrippa/LICENSE.md)
+[MIT](https://github.com/lombrosidade/agrippa/blob/main/LICENSE.md)
 
