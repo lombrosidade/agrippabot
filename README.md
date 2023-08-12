@@ -97,7 +97,7 @@ The text should be tweeted then.
 
 ## Tests
 <details> 
-  <summary><b>Test Bot</b></summary>
+  <summary><b>Test helper functions</b></summary>
 
 To test the helper functions, do the following:
 
