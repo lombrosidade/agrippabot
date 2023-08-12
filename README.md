@@ -116,6 +116,6 @@ pip install pytest
 pytest tests
 ```
 </details>
-# License
+## License
 [MIT](https://github.com/lombrosidade/agrippa/LICENSE.md)
 
