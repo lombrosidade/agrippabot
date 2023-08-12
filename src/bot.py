@@ -35,7 +35,7 @@ TEXT_PATH = environ.get('TEXT_PATH')
 TEXT_FILE = get_text_file(script_directory, TEXT_PATH)
 
 
-def tweet_line_from_file(path: str, max_retries: int = 1, interval: int = 6000) -> None:
+def tweet_line_from_file(path: str, interval: int = 3600) -> None:
     """
     Tweets a random line from a text file using Tweepy V2 API.
 
@@ -73,16 +73,13 @@ def tweet_line_from_file(path: str, max_retries: int = 1, interval: int = 6000) 
     assert isinstance(tweet, str)
 
     # Send tweet
-    retries = 0
-    while retries < max_retries:
-        try:
-            client.create_tweet(text=tweet)
-            logging.info("Tweeting line from file...")
-            logging.info("Sleeping for %s seconds...", interval)
-            time.sleep(interval)
-        except tweepy.errors.TweepyException as tweepy_exception:
-            logger.warning("Couldn't tweet: %s", tweepy_exception)
+    try:
+        client.create_tweet(text=tweet)
+        logging.info("Tweeting line from file...")
+        logging.info("Sleeping for %s seconds...", interval)
+        time.sleep(interval)
+    except tweepy.errors.TweepyException as tweepy_exception:
+        logger.warning("Couldn't tweet: %s", tweepy_exception)
         time.sleep(100)
-        retries += 1
 
 tweet_line_from_file(TEXT_FILE)
