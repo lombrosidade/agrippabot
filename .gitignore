@@ -163,6 +163,15 @@ cython_debug/
 
 # Project folder
 project/
+
+# Other files and folders
 .ipynb_checkpoints/
 .idea/
-*.ipynb/
+*.ipynb
+*.sh
+src/__pycache__/
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
