@@ -1,11 +1,10 @@
 import os
-import sys
 import time
 import logging
 from os import environ
 from dotenv import load_dotenv
 import tweepy
-from utils import read_lines, get_random_line
+from utils import read_lines, get_random_line, get_script_directory, get_text_file
 
 
 # Configure the logger
@@ -16,21 +15,16 @@ logging.basicConfig(level=logging.DEBUG,
 logger = logging.getLogger(__name__)
 
 # Get the parent directory of the current script (src directory)
-script_directory = os.path.dirname(
-    os.path.dirname(
-        os.path.abspath(__file__)
-    )
-)
-logger.info(f"Script directory is: {script_directory}")
+script_directory = get_script_directory()
 
 # Specify path with env file
 dotenv_path = os.path.join(script_directory, '.env')
-logger.info(f"Dotenv path is: {dotenv_path}")
 # Load environment variables
-is_loaded = load_dotenv(dotenv_path)
-if not is_loaded:
-    print(f"Couldn't find .env file in: {dotenv_path}. Make sure you they're in the root folder of the project."
-          )
+IS_LOADED = load_dotenv(dotenv_path)
+if not IS_LOADED:
+    print(f"Couldn't find .env file in: {dotenv_path}. "
+          "Make sure you they're in the root folder of the project."
+)
 
 CONSUMER_KEY = environ.get('CONSUMER_KEY')
 CONSUMER_SECRET = environ.get('CONSUMER_SECRET')
@@ -38,12 +32,18 @@ ACCESS_KEY = environ.get('ACCESS_KEY')
 ACCESS_KEY_SECRET = environ.get('ACCESS_KEY_SECRET')
 BEARER_TOKEN = environ.get('BEARER_TOKEN')
 TEXT_PATH = environ.get('TEXT_PATH')
-logger.info(f"Actual text path would be: {os.path.join(script_directory, TEXT_PATH)}")
-INTERVAL = 6000  # tweets every 100 minutes
+TEXT_FILE = get_text_file(script_directory, TEXT_PATH)
 
 
-def tweet_line_from_file(path: str, max_retries: int = 1) -> None:
-    count = 0
+def tweet_line_from_file(path: str, max_retries: int = 1, interval: int = 6000) -> None:
+    """
+    Tweets a random line from a text file using Tweepy V2 API.
+
+    Args:
+        path (str): The path to the text file containing tweetable lines.
+        max_retries (int, optional): The maximum number of retries for tweeting. Default is 1.
+        interval (int, optional): The interval between tweet attempts in seconds. Default is 100 seconds.
+    """
     client = tweepy.Client(
         bearer_token=BEARER_TOKEN,
         consumer_key=CONSUMER_KEY,
@@ -56,18 +56,21 @@ def tweet_line_from_file(path: str, max_retries: int = 1) -> None:
     try:
         client.get_me()
         logger.info("Successfully logged in")
-    except tweepy.errors.TweepyException as e:
-        print(f"Couldn't authenticate: {e}")
+    except tweepy.errors.TweepyException as tweepy_error:
+        print(f"Couldn't authenticate: {tweepy_error}")
 
     # Construct the absolute path to TEXT_PATH
-    text_path = os.path.join(script_directory, TEXT_PATH)
-    logger.debug(f"Trying to retrieve line from path: {text_path}")
+    text_path = os.path.join(script_directory, path)
+    assert os.path.isfile(text_path)
+    logger.debug("Trying to retrieve line from path: %s", path)
     text_file = read_lines(text_path)
-    logger.debug(f"Retrieved text from {TEXT_PATH}")
+    assert isinstance(text_file, list)
+    logger.debug("Retrieved text from %s", text_path)
 
     # Get random line from text
     tweet = get_random_line(text_file)
-    logger.debug(f"Got tweet from text: {tweet}")
+    logger.debug("Got tweet from text: %s", tweet)
+    assert isinstance(tweet, str)
 
     # Send tweet
     retries = 0
@@ -75,11 +78,11 @@ def tweet_line_from_file(path: str, max_retries: int = 1) -> None:
         try:
             client.create_tweet(text=tweet)
             logging.info("Tweeting line from file...")
-            logging.info(f"Sleeping for {INTERVAL} seconds...")
-            time.sleep(INTERVAL)
-        except tweepy.errors.TweepyException as e:
-            logger.warning(f"Couldn't tweet: {e}")
+            logging.info("Sleeping for %s seconds...", interval)
+            time.sleep(interval)
+        except tweepy.errors.TweepyException as tweepy_exception:
+            logger.warning("Couldn't tweet: %s", tweepy_exception)
         time.sleep(100)
         retries += 1
 
-tweet_line_from_file(TEXT_PATH)
+tweet_line_from_file(TEXT_FILE)
