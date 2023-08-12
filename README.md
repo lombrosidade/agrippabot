@@ -1,7 +1,7 @@
 # AgrippaBot
 
 ## About
->Twitter bot for Agrippa's Three Books of Occult Philosophy, translated by John French. This project was inspired by another similiar project by [Nneji123](https://github.com/Nneji123/RapLyricsBot/actions/workflows/test.yml), to whom I am grateful.
+>Twitter bot for Agrippa's Three Books of Occult Philosophy, translated by John French. This project was inspired by another similiar project by [Nneji123](https://github.com/Nneji123/RapLyricsBot/), to whom I am grateful.
 
 ## Contents
   * About
