@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    bot.tweet_line('./data/agrippa.txt')
+    bot.tweet_line_from_file('./data/agrippa.txt')
     return "Tweeting a line from Agrippa's Occult Philosophy"
 
 
