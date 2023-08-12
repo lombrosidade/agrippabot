@@ -1,12 +1,10 @@
-# RapLyricsBot :robot:
+# AgrippaBot :robot:
 
 [![Language](https://img.shields.io/badge/Python-darkblue.svg?style=flat&logo=python&logoColor=white)](https://www.python.org)
 [![Framework](https://img.shields.io/badge/Flask-darkgreen.svg?style=flat&logo=flask&logoColor=white)](https://github.com/lombrosidade/agrippabot)
 [![Twitter](https://img.shields.io/badge/Twitter-blue.svg?style=flat&logo=twitter&logoColor=white)](https://twitter.com/rabidfear)
 ![Docker](https://img.shields.io/badge/Docker-blue?style=flat&logo=docker&logoColor=white)
-[![tests](https://github.com/Nneji123/RapLyricsBot/actions/workflows/test.yml/badge.svg)](https://github.com/lombrosidade/agrippabot/actions/workflows/test.yml)
-[![CodeQL](https://github.com/Nneji123/RapLyricsBot/actions/workflows/codeql.yml/badge.svg)](https://github.com/Nneji123/RapLyricsBot/actions/workflows/codeql.yml)
-
+[![tests](https://github.com/lombrosidade/agrippabot/actions/workflows/test.yml/badge.svg)](https://github.com/lombrosidade/agrippabot/actions/workflows/test.yml)
 
 ## About :speech_balloon:
 >Twitter bot for Agrippa's Three Books of Occult Philosophy, translated by John French. This project was inspired by another similiar project by [Nneji123](https://github.com/Nneji123/RapLyricsBot/actions/workflows/test.yml), to whom I am grateful.
@@ -113,5 +111,5 @@ And then the text should be tweeted.
 </details>
 
 # License :page_with_curl:
-[MIT](https://github.com/Nneji123/RapLyricsBot/LICENSE.md)
+[MIT](https://github.com/lombrosidade/agrippa/LICENSE.md)
 
